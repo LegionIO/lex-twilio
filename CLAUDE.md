@@ -1,11 +1,12 @@
 # lex-twilio: Twilio Integration for LegionIO
 
 **Repository Level 3 Documentation**
-- **Category**: `/Users/miverso2/rubymine/legion/extensions/CLAUDE.md`
+- **Parent**: `/Users/miverso2/rubymine/legion/extensions-other/CLAUDE.md`
+- **Grandparent**: `/Users/miverso2/rubymine/legion/CLAUDE.md`
 
 ## Purpose
 
-Legion Extension that connects LegionIO to the Twilio communications platform. Provides runners for sending SMS messages, making voice calls, and managing Twilio accounts via the Twilio REST API.
+Legion Extension that connects LegionIO to the Twilio communications platform. Provides runners for sending SMS/MMS messages, making voice calls, and managing Twilio accounts via the Twilio REST API (Basic Auth with Account SID + Auth Token).
 
 **GitHub**: https://github.com/LegionIO/lex-twilio
 **License**: MIT
@@ -23,11 +24,14 @@ Legion::Extensions::Twilio
 └── Client                # Standalone client class (includes all runners)
 ```
 
-## Dependencies
+## Key Files
 
-| Gem | Purpose |
-|-----|---------|
-| `faraday` | HTTP client for Twilio REST API |
+| Path | Purpose |
+|------|---------|
+| `lib/legion/extensions/twilio.rb` | Entry point, loads all runners |
+| `lib/legion/extensions/twilio/client.rb` | Standalone client (initialize with account_sid:, auth_token:) |
+| `lib/legion/extensions/twilio/helpers/client.rb` | Faraday builder (Basic Auth: account_sid:auth_token) |
+| `lib/legion/extensions/twilio/runners/` | Messages, Calls, Accounts |
 
 ## API Coverage
 
@@ -51,7 +55,13 @@ client.send_message(to: '+15551234567', from: '+15559876543', body: 'Hello from 
 client.create_call(to: '+15551234567', from: '+15559876543', url: 'https://example.com/twiml')
 ```
 
-## Testing
+## Dependencies
+
+| Gem | Purpose |
+|-----|---------|
+| `faraday` (>= 2.0) | HTTP client for Twilio REST API |
+
+## Development
 
 ```bash
 bundle install
