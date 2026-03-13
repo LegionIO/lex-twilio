@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'lib/legion/extensions/twilio/version'
 
 Gem::Specification.new do |spec|
@@ -8,14 +10,15 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'LEX::Twilio'
   spec.description   = 'LEX::Twilio'
-  spec.homepage      = 'https://bitbucket.org/legion-io/lex-twilio'
+  spec.homepage      = 'https://github.com/LegionIO/lex-twilio'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
+  spec.required_ruby_version = '>= 3.4'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://bitbucket.org/legion-io/lex-twilio'
-  spec.metadata['documentation_uri'] = 'https://legionio.atlassian.net/wiki/spaces/LEX/pages/614858774'
-  spec.metadata['changelog_uri'] = 'https://legionio.atlassian.net/wiki/spaces/LEX/pages/612270137'
-  spec.metadata['bug_tracker_uri'] = 'https://bitbucket.org/legion-io/lex-twilio/issues'
+  spec.metadata['source_code_uri'] = 'https://github.com/LegionIO/lex-twilio'
+  spec.metadata['documentation_uri'] = 'https://github.com/LegionIO/lex-twilio'
+  spec.metadata['changelog_uri'] = 'https://github.com/LegionIO/lex-twilio'
+  spec.metadata['bug_tracker_uri'] = 'https://github.com/LegionIO/lex-twilio/issues'
+  spec.metadata['rubygems_mfa_required'] = 'true'
   spec.require_paths = ['lib']
 end
