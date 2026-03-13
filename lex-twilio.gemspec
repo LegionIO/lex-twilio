@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['matthewdiverson@gmail.com']
 
   spec.summary       = 'LEX::Twilio'
-  spec.description   = 'LEX::Twilio'
+  spec.description   = 'Connects LegionIO to Twilio for SMS, voice calls, and account management'
   spec.homepage      = 'https://github.com/LegionIO/lex-twilio'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.4'
@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.metadata['bug_tracker_uri'] = 'https://github.com/LegionIO/lex-twilio/issues'
   spec.metadata['rubygems_mfa_required'] = 'true'
   spec.require_paths = ['lib']
+
+  spec.add_dependency 'faraday', '>= 2.0'
 end

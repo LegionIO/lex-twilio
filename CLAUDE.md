@@ -5,23 +5,51 @@
 
 ## Purpose
 
-Legion Extension that connects LegionIO to the Twilio communications platform. Provides the foundation for sending SMS, making calls, and other Twilio operations from within Legion task chains.
+Legion Extension that connects LegionIO to the Twilio communications platform. Provides runners for sending SMS messages, making voice calls, and managing Twilio accounts via the Twilio REST API.
 
+**GitHub**: https://github.com/LegionIO/lex-twilio
 **License**: MIT
 
 ## Architecture
 
 ```
 Legion::Extensions::Twilio
-└── (base extension with Twilio integration)
+├── Runners/
+│   ├── Messages          # Send, list, get, redact, delete SMS/MMS
+│   ├── Calls             # Create, list, get, update, delete voice calls
+│   └── Accounts          # Get, list, update Twilio accounts
+├── Helpers/
+│   └── Client            # Faraday connection builder (Twilio REST API, Basic Auth)
+└── Client                # Standalone client class (includes all runners)
 ```
 
-## Key Files
+## Dependencies
 
-| Path | Purpose |
-|------|---------|
-| `lib/legion/extensions/Twilio.rb` | Entry point, extension registration |
-| `lib/legion/extensions/Twilio/version.rb` | Version constant |
+| Gem | Purpose |
+|-----|---------|
+| `faraday` | HTTP client for Twilio REST API |
+
+## API Coverage
+
+| Runner | Methods |
+|--------|---------|
+| Messages | `send_message`, `get_message`, `list_messages`, `redact_message`, `delete_message` |
+| Calls | `create_call`, `get_call`, `list_calls`, `update_call`, `delete_call` |
+| Accounts | `get_account`, `list_accounts`, `update_account` |
+
+## Standalone Usage
+
+```ruby
+require 'legion/extensions/twilio/client'
+
+client = Legion::Extensions::Twilio::Client.new(
+  account_sid: 'ACxxxxx',
+  auth_token: 'your_auth_token'
+)
+
+client.send_message(to: '+15551234567', from: '+15559876543', body: 'Hello from Legion!')
+client.create_call(to: '+15551234567', from: '+15559876543', url: 'https://example.com/twiml')
+```
 
 ## Testing
 
