@@ -10,6 +10,7 @@ Legion Extension that connects LegionIO to the Twilio communications platform. P
 
 **GitHub**: https://github.com/LegionIO/lex-twilio
 **License**: MIT
+**Version**: 0.1.0
 
 ## Architecture
 
@@ -62,6 +63,8 @@ client.create_call(to: '+15551234567', from: '+15559876543', url: 'https://examp
 | `faraday` (>= 2.0) | HTTP client for Twilio REST API |
 
 ## Development
+
+26 specs total.
 
 ```bash
 bundle install
