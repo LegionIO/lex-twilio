@@ -10,7 +10,7 @@ Legion Extension that connects LegionIO to the Twilio communications platform. P
 
 **GitHub**: https://github.com/LegionIO/lex-twilio
 **License**: MIT
-**Version**: 0.1.0
+**Version**: 0.1.1
 
 ## Architecture
 
